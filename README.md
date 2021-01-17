@@ -1,7 +1,8 @@
 # Source Files for the RNBIP Emulator
-
-## This Codebase is being refactored
-
+# Alpha Release
+'''bash
+pip install rnbip-paulgeorge==0.1.0
+'''
 ## Extention project ideas
 #### COCO-TB Verilator Co Simulation Setup
 #### Emulator to Nexys 4 Fpga Project One Click Build instrumentation
