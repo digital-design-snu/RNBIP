@@ -256,8 +256,6 @@ class MainWidow(QMainWindow):
     march = self.inst_emulator.TraceVector[self.trace_index][1]
 
     controlBits = march.ControlBits
-    print(controlBits)
-    print("Click")
     PC = arch.PC
     SP = arch.SP
     OR = march.OperandRegister
