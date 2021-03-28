@@ -34,7 +34,8 @@ import re
 import sys
 
 from RNBIP_ISA import Architectural_state,Microarchitectural_state
-from emulator_io import IO_Interface
+# if platform.system == "Linux":
+#   from emulator_io import IO_Interface
 # Block Design
 # process declarition with all shared variables
 # Procces tasks on current mmachine state
@@ -197,19 +198,17 @@ class single_bus_emulator:
       REGSEL = InstructionRegister.value%8 #cached for Synchronous Protection
       if(ControlBits[13] == b'1'):
         # Tkinter Code Here
-        print("Hey")
-        interface = IO_Interface(IO_In,IO_Out)
-        interface.mainloop()
-        print("Yo")
-        print(IO_In)
-        DataBus.put(IO_In[REGSEL])
+        # interface = IO_Interface(IO_In,IO_Out)
+        # interface.mainloop()
+        # print(IO_In)
+        DataBus.put(IO_In[REGSEL]) ## IOs are Effectively Looped Back
       Barrier1.wait()
       # Synchronous Here after
       if( LOP == b'1'):
         IO_Out[REGSEL] = DataBus.get() # .value requirement ? Not Required :)
-        interface = IO_Interface(IO_In,IO_Out)
-        interface.mainloop()
-        print(IO_Out)
+        #interface = IO_Interface(IO_In,IO_Out)
+        #interface.mainloop()
+        #print(IO_Out)
       Barrier2.wait()
       if(Kill.value == 1 ): return
     return

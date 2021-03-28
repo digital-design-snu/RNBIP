@@ -25,6 +25,13 @@ class MainWidow(QMainWindow):
     self.constructor()
     
     # Emulator Interface Setup
+    # Connect Buttons
+    self.ui.nextStage.clicked.connect(self.on_nextStage_clicked)
+    self.ui.pushButton.clicked.connect(self.on_pushButton_clicked)
+    self.ui.pushButton_2.clicked.connect(self.on_pushButton_2_clicked)
+    self.ui.reset.clicked.connect(self.on_reset_clicked)
+    self.ui.run10ClockCycle.clicked.connect(self.on_run10ClockCycle_clicked)
+
     self.inst_emulator = inst_emulator
     self.inst_emulator.start()
     self.inst_emulator.step_n(1)
@@ -249,7 +256,8 @@ class MainWidow(QMainWindow):
     march = self.inst_emulator.TraceVector[self.trace_index][1]
 
     controlBits = march.ControlBits
-    cycleNumber = self.trace_index
+    print(controlBits)
+    print("Click")
     PC = arch.PC
     SP = arch.SP
     OR = march.OperandRegister
@@ -438,7 +446,12 @@ class MainWidow(QMainWindow):
 
   def on_pushButton_clicked(self):
     self.ui.logBox.setText("Compiling source files\n")
-    self.last_compiled_mem,self.log_string = self.inst_assembler.compile(self.ui.plainTextEdit.toPlainText())
+    try:
+      self.last_compiled_mem,self.log_string = self.inst_assembler.compile(self.ui.plainTextEdit.toPlainText())
+    except:
+      print("Error")
+      self.ui.logBox.setText("Syntax Error\n")
+      return
 
     self.inst_emulator.end_emulation()
     # print("Reset")
@@ -475,14 +488,6 @@ class MainWidow(QMainWindow):
     self.on_nextStage_clicked()
 
   def on_run10ClockCycle_clicked(self):
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
-    self.on_nextStage_clicked()
+    for i in range(10):
+      self.on_nextStage_clicked()
 #### End of GUI Section
