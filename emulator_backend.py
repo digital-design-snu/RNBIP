@@ -606,8 +606,3 @@ class single_bus_emulator:
 
     #print("No issue in init :D")
     # print (self.TraceVector)
-
-if __name__ == '__main__':
-  #mpl = multiprocessing.log_to_stderr()
-  #mpl.setLevel(logging.DEBUG)
-  main()

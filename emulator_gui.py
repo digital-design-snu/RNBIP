@@ -9,13 +9,13 @@ from PyQt5.QtWidgets import (QWidget, QToolTip,
 from PyQt5.QtGui import (QFont, QPixmap, QPalette)
 from PyQt5.QtCore import (Qt, QRect,QPoint,QSize)
 
-import MainWindow_UI
+import rnbip_MainWindow_UI
 
 QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True) #enable highdpi scaling
 QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True) 
 
 ### Global State
-path = os.path.dirname(os.path.abspath(__file__))
+path = ""#os.path.dirname(os.path.abspath(__file__))
 
 ### QT GUI MainWinDow
 class MainWidow(QMainWindow):
@@ -42,7 +42,7 @@ class MainWidow(QMainWindow):
     self.inst_assembler = inst_assembler
 
   def constructor(self):
-    self.ui = MainWindow_UI.Ui_MainWidow()
+    self.ui = rnbip_MainWindow_UI.Ui_MainWidow()
     self.ui.setupUi(self)
     
     self.setWindowTitle("Single-Bus Processor")
