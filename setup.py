@@ -140,7 +140,7 @@ setup(
                 #
                     # For an analysis of "install_requires" vs pip's requirements files see:
                         # https://packaging.python.org/en/latest/requirements.html
-                            install_requires=['pyqt5'],  # Optional
+                            install_requires=['PyQt5'],  # Optional
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
     # http://docs.python.org/distutils/setupscript.html#installing-additional-files
