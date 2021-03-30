@@ -42,9 +42,9 @@ rnbip
 **FILE AN ISSUE :)**
 
 ## Enjoyed Learning Digital Electronics with the RNBIP Emulator ? Here are some of our Ideas for ways you could contribute.
- -[] COCO-TB Verilator Co Simulation Setup
- -[] Emulator to Xilinx Nexys 4 Fpga Project One Click Build instrumentation
- -[] Web Based emulator
- -[] Create an LLVM Backend for RNBIP 8/16
+ - [] COCO-TB Verilator Co Simulation Setup
+ - [] Emulator to Xilinx Nexys 4 Fpga Project One Click Build instrumentation
+ - [] Web Based emulator
+ - [] Create an LLVM Backend for RNBIP 8/16
 Please Contact: Prof. R.N.Biswas or Paul George (command.paul@gmail.com) , Vedant Chakravarty and Prasanna Natarajan for more information / Assistance.
 
