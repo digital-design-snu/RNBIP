@@ -16,13 +16,13 @@ You can Install the rnbip with the following command.
 ```bash
 pip3 install rnbip
 ```
-!(/docs/test.gif)
+![](/docs/test.gif)
 
 ### Launch RNBIP
 ```bash
 python3 -m rnbip_emulator
 ```
-!(/docs/test2.gif)
+![](/docs/test2.gif)
 ### Setup Instructions Linux
 Use your favourite package manager to install python3 and python-pip.   
 Install the rnbip with the following command.
@@ -37,7 +37,7 @@ Alternatively, if installed scripts are added to path by default
 ```bash
 rnbip
 ```
-!(docs/rnbip_install_run.gif)
+![](docs/rnbip_install_run.gif)
 ## Found a Bug / Feature Request ?
 **FILE AN ISSUE :)**
 
