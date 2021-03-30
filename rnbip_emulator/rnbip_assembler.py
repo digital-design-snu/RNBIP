@@ -87,14 +87,11 @@ class rnbip_assembler():
               if line.strip() in list_of_od_operations:
                 line = line + "\n" + temp
               else:
-                print("inside first else")
                 line = log(line)+ "\n" + temp
-        output = line.strip();
-        # print(output);
+        output = line.strip()
         if len(output) < 20:
           temp_str = temp_str + output+"\n"
         else:
-          print("inside log")
           log_str = log_str + "Error at " + output
           sys.exit()
       elif line[0]=="":
@@ -126,13 +123,11 @@ class rnbip_assembler():
               #print (line)
               line = line + "\n" + temp
             else:
-              print("inside log else")
               line = log(line)+ "\n" + temp
       if len(line) < 20:
         #print(line)
         temp_str = temp_str + line +"\n"
       else:
-        print("here")
         log_str = log_str + "Error at " + line
         sys.exit()
     # print("done")
@@ -230,10 +225,8 @@ class rnbip_assembler():
               else:
                 line = tline
               if line.strip() in list_of_od_operations:
-                print("here od")
                 line = line.upper() + "\n" + temp
               else:
-                print("not od")
                 line = log(line.upper())+ "\n" + temp
           output = line.strip();
           #print(output);
@@ -259,7 +252,6 @@ class rnbip_assembler():
             if len(output)<20 and tempx==1 :
               out_str = out_str + output+"\n"
             else:
-              print("lof 2")
               log_str = log_str + "Error at " + output
               sys.exit()
     if flag == 1:

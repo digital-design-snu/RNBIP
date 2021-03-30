@@ -87,7 +87,6 @@ class IO_Interface(tk.Tk):
         # Reconstruct the Byte Here
         inp = int(self.entries[i][1][j].get())
         if(inp != 0 )and(inp != 1):
-          print("Error in input")
           return -1
         k = inp +2*k;
       hexk = int(self.entries[i][0].get())

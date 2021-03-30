@@ -54,8 +54,6 @@ class MainWidow(QMainWindow):
     
     h = self.height()-100
     w = self.width()-500
-    # pix = QPixmap(os.path.join(path,"asset/back_final.png"))
-    print(("asset/back_final.png"))
     pix = QPixmap(os.path.join(path,"asset/back_final.png"))
     self.ui.imageLabel_Source.setPixmap(pix.scaled(w,h,Qt.KeepAspectRatio))
 
@@ -451,7 +449,6 @@ class MainWidow(QMainWindow):
     try:
       self.last_compiled_mem,self.log_string = self.inst_assembler.compile(self.ui.plainTextEdit.toPlainText())
     except:
-      print("Error")
       self.ui.logBox.setText("Syntax Error\n")
       return
 
