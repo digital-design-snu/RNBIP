@@ -1,0 +1,3 @@
+include rnbip_emulator/asset/*.png
+include rnbip_emulator/machCode.bin
+include Sample_programs.asm

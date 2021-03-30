@@ -1,7 +1,7 @@
 import sys
 import os
 import time
-from RNBIP_ISA import prettyPrintOpDecode
+from rnbip_emulator.rnbip_isa import prettyPrintOpDecode
 
 from PyQt5.QtWidgets import (QWidget, QToolTip,
     QPushButton, QApplication, QMainWindow, QTableWidgetItem,
@@ -9,13 +9,15 @@ from PyQt5.QtWidgets import (QWidget, QToolTip,
 from PyQt5.QtGui import (QFont, QPixmap, QPalette)
 from PyQt5.QtCore import (Qt, QRect,QPoint,QSize)
 
-import rnbip_MainWindow_UI
+from rnbip_emulator import rnbip_mainwindow_ui
+
+from pkg_resources import resource_filename
 
 QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True) #enable highdpi scaling
 QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True) 
 
 ### Global State
-path = ""#os.path.dirname(os.path.abspath(__file__))
+path = os.path.dirname(os.path.abspath(__file__))
 
 ### QT GUI MainWinDow
 class MainWidow(QMainWindow):
@@ -42,7 +44,7 @@ class MainWidow(QMainWindow):
     self.inst_assembler = inst_assembler
 
   def constructor(self):
-    self.ui = rnbip_MainWindow_UI.Ui_MainWidow()
+    self.ui = rnbip_mainwindow_ui.Ui_MainWidow()
     self.ui.setupUi(self)
     
     self.setWindowTitle("Single-Bus Processor")
@@ -52,6 +54,8 @@ class MainWidow(QMainWindow):
     
     h = self.height()-100
     w = self.width()-500
+    # pix = QPixmap(os.path.join(path,"asset/back_final.png"))
+    print(("asset/back_final.png"))
     pix = QPixmap(os.path.join(path,"asset/back_final.png"))
     self.ui.imageLabel_Source.setPixmap(pix.scaled(w,h,Qt.KeepAspectRatio))
 

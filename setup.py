@@ -37,7 +37,7 @@ setup(
         # For a discussion on single-sourcing the version across setup.py and the
         # project code, see
         # https://packaging.python.org/en/latest/single_source_version.html
-        version='1.5.0',  # Required
+        version='1.5.1',  # Required
 
         # This is a one-line description or tagline of what your project does. This
         # corresponds to the "Summary" metadata field:
@@ -120,20 +120,13 @@ setup(
 
     # You can just specify package directories manually here if your project is
         # simple. Or you can use find_packages().
-            #
+            packages = find_packages(),
                 # Alternatively, if you just want to distribute a single Python file, use
                     # the `py_modules` argument instead as follows, which will expect a file
                         # called `my_module.py` to exist:
                             #
-                                py_modules=["emulator_backend",
-"emulator_gui",
-"emulator_io",
-"rnbip_MainWindow_UI",
-"rnbip_assembler",
-"rnbip_emulator",
-"RNBIP_ISA"],
-                                    #
-                                        # packages=find_packages(where='./'),  # Required
+                                # py_modules=["emulator_backend","emulator_gui","emulator_io","rnbip_MainWindow_UI",
+                                #             "rnbip_assembler","rnbip_emulator","RNBIP_ISA"],
 
     # Specify which Python versions you support. In contrast to the
         # 'Programming Language' classifiers above, 'pip install' will check this
@@ -148,6 +141,13 @@ setup(
                     # For an analysis of "install_requires" vs pip's requirements files see:
                         # https://packaging.python.org/en/latest/requirements.html
                             install_requires=['pyqt5'],  # Optional
+    # Although 'package_data' is the preferred approach, in some case you may
+    # need to place data files outside of your packages. See:
+    # http://docs.python.org/distutils/setupscript.html#installing-additional-files
+    #
+    # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
+    # package_data={'rnbip_emulator': ['asset/back_final.png','asset/Capture2.png','asset/Capture3.png','asset/Capture_final.png','asset/Capture_x.png','asset/C_no.png','asset/C_yes.png','asset/Databus.png','asset/D_SP.png','asset/E_FL.png','asset/E_IP.png','asset/E_OR.png','asset/E_PC.png','asset/E_R0.png','asset/E_RN.png','asset/E_SP.png','asset/I_PC.png','asset/I_SP.png','asset/killEOR.png','asset/killEPC.png','asset/killLPC.png','asset/killLR0.png','asset/killLRN2.png','asset/L_IR.png','asset/L_OP.png','asset/L_OR.png','asset/L_PC.png','asset/L_R0.png','asset/L_RN.png','asset/L_SP.png','asset/OD_PC.png','asset/OP_no.png','asset/OP_yes.png','asset/P_no.png','asset/P_yes.png','asset/R0_AS.png','asset/RD.png','asset/SAF_activated.png','asset/S_AL.png','asset/S_IF.png','asset/S_PC.png','asset/specialPath.png','asset/S_SP.png','asset/WR.png','asset/Z_no.png','asset/Z_yes.png','machCode.bin']},
+    include_package_data=True,
 
     # To provide executable scripts, use entry points in preference to the
         # "scripts" keyword. Entry points provide cross-platform support and allow

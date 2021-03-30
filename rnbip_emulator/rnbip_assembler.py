@@ -8,7 +8,7 @@ import platform
 import re
 import sys
 
-from RNBIP_ISA import *
+from rnbip_emulator.rnbip_isa import *
 
 def log(x):
   flag=0;

@@ -32,8 +32,9 @@ import datetime
 import platform
 import re
 import sys
+# import importlib
 
-from RNBIP_ISA import Architectural_state,Microarchitectural_state
+from rnbip_emulator.rnbip_isa import Architectural_state,Microarchitectural_state
 # if platform.system == "Linux":
 #   from emulator_io import IO_Interface
 # Block Design
@@ -394,7 +395,9 @@ class single_bus_emulator:
     IR = 0
     CCG_LUT = []
     FL = False
-    CCGConfFile = open('machCode.bin')
+    # importlib.resources.path
+    path = os.path.dirname(os.path.abspath(__file__))
+    CCGConfFile = open(os.path.join(path,'machCode.bin'))
     while(counter<512):
       line = CCGConfFile.readline()
       Temp_Pointer = ctypes.create_string_buffer(line.encode())
