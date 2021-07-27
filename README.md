@@ -1,5 +1,5 @@
 # RNBIP Emulator
-#### A Visal Exploration of the RNBIP ISA as interpreted as a single bus micro architecture
+#### A Visual Exploration of the RNBIP ISA as interpreted as a single bus micro architecture
 
 The RNBIP Emulator is distributed as a python package and the latest release should always be available on Pypi.     
 
