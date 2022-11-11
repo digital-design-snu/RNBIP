@@ -439,7 +439,7 @@ class single_bus_emulator:
         if (L_IR == b'1'):
           IR = IR_CCG.get()
         ctypes.memmove(ControlBits,CCG_LUT[IR*2 +State.value], 23)
-        State.value = (State.value + 1) %2
+        State.value = (State.value + 1) %3
 
       Barrier2.wait()
       if(Kill.value == 1 ):
