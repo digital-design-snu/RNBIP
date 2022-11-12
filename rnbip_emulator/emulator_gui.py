@@ -21,6 +21,13 @@ path = os.path.dirname(os.path.abspath(__file__))
 
 ### QT GUI MainWinDow
 class MainWidow(QMainWindow):
+    
+  @staticmethod
+  def prettyPrintHex(int_value):
+      hex_value = format(int_value, 'X')
+      if len(hex_value) == 1:
+          hex_value = '0' + hex_value
+      return hex_value
 
   def __init__(self,inst_emulator,inst_assembler,*args, **kwargs):
     super().__init__(*args, **kwargs)
@@ -279,11 +286,11 @@ class MainWidow(QMainWindow):
         # 0 0 0 0
         # 0 0 0 0
         # 0 0
-    self.ui.state.setText(hex(state))
-    self.ui.PC_value.setText(hex(PC))
-    self.ui.SP_value.setText(hex((SP+256 - 1)%256))
-    self.ui.OR_value.setText(hex(OR))
-    self.ui.IR_value.setText("Opcode : "+hex(IR_reg))
+    self.ui.state.setText(MainWidow.prettyPrintHex(state))
+    self.ui.PC_value.setText(MainWidow.prettyPrintHex(PC))
+    self.ui.SP_value.setText(MainWidow.prettyPrintHex((SP+256 - 1)%256))
+    self.ui.OR_value.setText(MainWidow.prettyPrintHex(OR))
+    self.ui.IR_value.setText("Opcode : "+MainWidow.prettyPrintHex(IR_reg))
 
     output = prettyPrintOpDecode(IR_reg)
 
@@ -296,21 +303,21 @@ class MainWidow(QMainWindow):
     self.ui.Instruction_value.setText("Instruction : "+output)
 
     self.ui.R0_value.setPalette(blackColor)
-    self.ui.R0_value.setText(hex(registerArray[0]))
+    self.ui.R0_value.setText(MainWidow.prettyPrintHex(registerArray[0]))
     self.ui.R1_value.setPalette(blackColor)
-    self.ui.R1_value.setText(hex(registerArray[1]))
+    self.ui.R1_value.setText(MainWidow.prettyPrintHex(registerArray[1]))
     self.ui.R2_value.setPalette(blackColor)
-    self.ui.R2_value.setText(hex(registerArray[2]))
+    self.ui.R2_value.setText(MainWidow.prettyPrintHex(registerArray[2]))
     self.ui.R3_value.setPalette(blackColor)
-    self.ui.R3_value.setText(hex(registerArray[3]))
+    self.ui.R3_value.setText(MainWidow.prettyPrintHex(registerArray[3]))
     self.ui.R4_value.setPalette(blackColor)
-    self.ui.R4_value.setText(hex(registerArray[4]))
+    self.ui.R4_value.setText(MainWidow.prettyPrintHex(registerArray[4]))
     self.ui.R5_value.setPalette(blackColor)
-    self.ui.R5_value.setText(hex(registerArray[5]))
+    self.ui.R5_value.setText(MainWidow.prettyPrintHex(registerArray[5]))
     self.ui.R6_value.setPalette(blackColor)
-    self.ui.R6_value.setText(hex(registerArray[6]))
+    self.ui.R6_value.setText(MainWidow.prettyPrintHex(registerArray[6]))
     self.ui.R7_value.setPalette(blackColor)
-    self.ui.R7_value.setText(hex(registerArray[7]))
+    self.ui.R7_value.setText(MainWidow.prettyPrintHex(registerArray[7]))
 
     #     switch(currentNew){
     #     case 0:
@@ -417,8 +424,8 @@ class MainWidow(QMainWindow):
       self.ui.label_2.setVisible(True)
     
     for j in range(0,255):
-      self.table.setItem(j, 0, QTableWidgetItem(hex(j)))
-      self.table.setItem(j, 1, QTableWidgetItem(hex(memoryContents[j])))
+      self.table.setItem(j, 0, QTableWidgetItem(MainWidow.prettyPrintHex(j)))
+      self.table.setItem(j, 1, QTableWidgetItem(MainWidow.prettyPrintHex(memoryContents[j])))
 
     localTOS = (SP+256 - 1)%256
     heightOfStack = 255 - localTOS
@@ -428,7 +435,7 @@ class MainWidow(QMainWindow):
     self.stack.setColumnCount(1)
     self.stack.setRowCount(heightOfStack)
     for iterator in range(0,heightOfStack):
-      self.stack.setItem(iterator, 0, QTableWidgetItem(hex(memoryContents[255-heightOfStack+iterator+1])))
+      self.stack.setItem(iterator, 0, QTableWidgetItem(MainWidow.prettyPrintHex(memoryContents[255-heightOfStack+iterator+1])))
 
     if(self.trace_index == 0):
       self.ui.Instruction_value.setText("Instruction : XX")
